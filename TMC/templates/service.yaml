@@ -9,8 +9,9 @@ metadata:
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
   type: {{ .Values.service.type }}
-  {{- if .Values.service.clusterIP }}
-  clusterIP: {{ .Values.service.clusterIP }}
+  {{- if .Values.service.ClusterIP }}
+  clusterIP: {{ .Values.service.ClusterIP }} #just for test purpose
+    port: 123  #just for test purpose
   {{- end }}
   ports:
   - name: tmc-port
