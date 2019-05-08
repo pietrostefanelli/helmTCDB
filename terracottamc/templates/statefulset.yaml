@@ -1,28 +1,28 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: {{ include "TMC.fullname" . }}
+  name: {{ include "terracottamc.fullname" . }}
   namespace: {{ .Values.namespace }}
   labels:
-    app.kubernetes.io/name: {{ include "TMC.name" . }}
-    helm.sh/chart: {{ include "TMC.chart" . }}
+    app.kubernetes.io/name: {{ include "terracottamc.name" . }}
+    helm.sh/chart: {{ include "terracottamc.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "TMC.name" . }}
+      app.kubernetes.io/name: {{ include "terracottamc.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ include "TMC.name" . }}
+        app.kubernetes.io/name: {{ include "terracottamc.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
       containers:
       - name: {{ .Chart.Name }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
         - name: ACCEPT_EULA
@@ -34,6 +34,8 @@ spec:
         volumeMounts:
         - name: {{ .Values.spec.template.spec.containers.volumeMounts.name }}
           mountPath: {{ .Values.spec.template.spec.containers.volumeMounts.mountPath }}
+      imagePullSecrets:
+      - name: regcred
       volumes:
         - name: {{ .Values.spec.template.spec.volumes.name }}
           hostPath:
