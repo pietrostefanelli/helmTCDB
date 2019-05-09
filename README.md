@@ -5,5 +5,5 @@ first git clone repository<br>
 be sure you configured secret to connect to docker hub to be able to download TMC docker image<br>
 install using HELM:<br>
 <code>
-  $ helm install --name tmctest terracottamc --set imagePullSecrets.name=<yourSecret>
+  $ helm install --name tmctest terracottamc --set imagePullSecrets.name=[yourSecret]
 </code>
