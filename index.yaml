@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  terracottamc:
+  - apiVersion: v1
+    appVersion: "10.3"
+    created: 2019-05-09T11:29:55.576448+02:00
+    description: Terracotta Management Console
+    digest: 93256eec8e156c3895894f3e86a01f978cf1a20c79d459a30608ec79a8bff743
+    name: terracottamc
+    urls:
+    - https://github.com/pietrostefanelli/helmTCDB/terracottamc-1.0.0.tgz
+    version: 1.0.0
+generated: 2019-05-09T11:29:55.57343+02:00
