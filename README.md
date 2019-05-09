@@ -1,1 +1,1 @@
-helmTCDB
+terracotta management console helm chart
