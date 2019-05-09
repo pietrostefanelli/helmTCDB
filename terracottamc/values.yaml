@@ -8,7 +8,8 @@ service:
   port: 9480
 replicaCount: 1
 namespace: tmc
-
+imagePullSecrets:
+  name: regcred
 image:
   repository: store/softwareag/tmc
   tag: 10.3

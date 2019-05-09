@@ -35,7 +35,7 @@ spec:
         - name: {{ .Values.spec.template.spec.containers.volumeMounts.name }}
           mountPath: {{ .Values.spec.template.spec.containers.volumeMounts.mountPath }}
       imagePullSecrets:
-      - name: regcred
+      - name: {{ .Values.imagePullSecrets.name }}
       volumes:
         - name: {{ .Values.spec.template.spec.volumes.name }}
           hostPath:
