@@ -13,22 +13,17 @@ image:
   repository: store/softwareag/tmc
   tag: 10.3
   pullPolicy: Always
-#TEST
+#default for TMC connection url and license acceptance
 template:
   spec:
     env:
       ACCEPT_EULA: "Y"
       TMS_DEFAULTURL: "terracotta://localhost:9410"
-#TEST
+#define volumes mounts
 spec:
   template:
     spec:
       containers:
-        env:
-        - name: ACCEPT_EULA
-          value: "Y"
-        - name: TMS_DEFAULTURL
-          value: "terracotta://localhost:9410"
         volumeMounts:
             name: tmcdata
             mountPath: /data/tmc/
